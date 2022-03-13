@@ -1,0 +1,21 @@
+.divcenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #bdf169;
+  padding: 2rem;
+  width: 100%;
+}
+
+h1 {
+  align-items: center;
+  color: orangered;
+}
+
+btn-redirect {
+  width: 50px;
+  margin: 1rem 0;
+  padding: 10px;
+  display: inline-block;
+  background-color: red;
+}

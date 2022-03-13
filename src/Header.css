@@ -1,0 +1,52 @@
+.header {
+  background-color: #000;
+  height: 72px;
+  padding: 0px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.search-bar {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar form {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+
+.search-bar button {
+  padding: 0px 8px;
+  font-size: 20px;
+  cursor: pointer;
+  height: 38px;
+  margin-left: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+.search-bar input {
+  font-size: 18px;
+  width: 100%;
+  padding: 5px 5px 5px 10px;
+  height: 38px;
+  border-radius: 0.4rem;
+  outline: none;
+}
+
+.fa-solid {
+  background-color: yellow;
+}
