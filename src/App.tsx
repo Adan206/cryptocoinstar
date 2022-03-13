@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<Coinlist />} />
+          <Route path='/cryptocoinstar' element={<Coinlist />} />
           <Route path='/coin/:id' element={<CoinPage />} />
           <Route path='*' element={<Navigate to='/cryptocoinstar' />} />
         </Routes>
