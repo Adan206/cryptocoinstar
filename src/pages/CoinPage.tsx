@@ -13,7 +13,13 @@ import {
   HorizontalGridLines,
   VerticalGridLines,
   AreaSeries,
+  AreaSeriesPoint,
 } from "react-vis";
+
+type ChartDataElement = {
+  x: number;
+  y: string;
+};
 
 const CoinPage = () => {
   const dispatch = useAppDispatch();
@@ -25,9 +31,9 @@ const CoinPage = () => {
   //   return <Navigate to='/' state={{ from: location }} replace />;
   // }
 
-  // const coinHistory: any[] | "error" = useSelector(selectHistoryData(id || ""));
+  const coinHistory: any[] | "error" = useSelector(selectHistoryData(id || ""));
 
-  const coinHistory: any = useSelector(selectHistoryData(id || ""));
+  // const coinHistory: any = useSelector(selectHistoryData(id || ""));
 
   React.useEffect(() => {
     console.log({ id, coinHistory });
@@ -43,14 +49,20 @@ const CoinPage = () => {
     (id?.slice(0, 1) || "").toUpperCase() +
     id?.slice(1, id.length).toLowerCase();
 
-  const data = coinHistory.map(
-    (coin: { market_data: { current_price: { usd: any } } }, index: number) => {
-      return {
-        x: index + 1,
-        y: `${coin.market_data.current_price.usd.toFixed(3)}`,
-      };
-    }
-  );
+  const data =
+    coinHistory === "error"
+      ? coinHistory
+      : coinHistory.map(
+          (
+            coin: { market_data: { current_price: { usd: any } } },
+            index: number
+          ): AreaSeriesPoint => {
+            return {
+              x: index + 1,
+              y: coin.market_data.current_price.usd.toFixed(2),
+            };
+          }
+        );
 
   console.log(data);
 
@@ -66,22 +78,26 @@ const CoinPage = () => {
         home
       </button>
 
-      <XYPlot xType='ordinal' width={900} height={500}>
-        <VerticalGridLines />
-        <HorizontalGridLines />
-        {/* <XAxis title=' Week' />
+      {data === "error" ? (
+        <p>error in fetching data</p>
+      ) : (
+        <XYPlot xType='ordinal' width={900} height={500}>
+          <VerticalGridLines />
+          <HorizontalGridLines />
+          {/* <XAxis title=' Week' />
         <YAxis title='Market Cap' /> */}
-        {/* <LineSeries data={data} color='red' /> */}
-        <AreaSeries
-          data={data}
-          style={{ strokeDasharray: "2 2" }}
-          animation
-          colorType={"category"}
-          stroke={"#ccc"}
-        />
-        <XAxis marginBottom={30} title=' Days Of Week' />
-        <YAxis left={30} title='Market Cap In Dollars' />
-      </XYPlot>
+          {/* <LineSeries data={data} color='red' /> */}
+          <AreaSeries
+            data={data}
+            style={{ strokeDasharray: "2 2" }}
+            animation
+            colorType={"category"}
+            stroke={"#ccc"}
+          />
+          <XAxis marginBottom={30} title=' Days Of Week' />
+          <YAxis left={30} title='Market Cap In Dollars' />
+        </XYPlot>
+      )}
     </div>
   );
 };
