@@ -12,7 +12,8 @@ function App() {
         <Routes>
           <Route path='/cryptocoinstar' element={<Coinlist />} />
           <Route path='/coin/:id' element={<CoinPage />} />
-          <Route path='*' element={<Navigate to='/cryptocoinstar' />} />
+          {/* <Route path='/coin/:id' element={<CoinPage />} /> */}
+          {/* <Route path='*' element={<Navigate to='/cryptocoinstar' />} /> */}
         </Routes>
       </BrowserRouter>
     </>
