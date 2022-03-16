@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <Link to='/'>
+      <Link to='/cryptocoinstar'>
         <div className='logo'>
           <FontAwesomeIcon icon={faCoins} className='fonticon' />
           CryptoCoins

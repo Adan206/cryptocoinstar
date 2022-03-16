@@ -38,7 +38,7 @@ const CoinPage = () => {
   React.useEffect(() => {
     console.log({ id, coinHistory });
     if (coinHistory === "error") {
-      return navigate("/");
+      return navigate("/cryptocoinstar");
     } else if (coinHistory.length === 0 && id !== undefined) {
       console.log(`this is the id ${id}`);
       dispatch(getHistoryData(id));
@@ -71,7 +71,7 @@ const CoinPage = () => {
       <h1>{titleCaseId} Market Cap Past Week</h1>
       <button
         onClick={() => {
-          navigate("/");
+          navigate("/cryptocoinstar");
         }}
         style={{ width: "200px", margin: "1rem" }}
       >
