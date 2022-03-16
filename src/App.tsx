@@ -11,7 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/cryptocoinstar' element={<Coinlist />} />
-          <Route path='/coin/:id' element={<CoinPage />} />
+          <Route path='/cryptocoinstar/:id' element={<CoinPage />} />
           {/* <Route path='/coin/:id' element={<CoinPage />} /> */}
           {/* <Route path='*' element={<Navigate to='/cryptocoinstar' />} /> */}
         </Routes>
