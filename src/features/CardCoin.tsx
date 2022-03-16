@@ -19,7 +19,7 @@ const CardCoin = (props: any) => {
             crypto is a digital currency not reliant on any central authority,
             such as a government or bank, to uphold or maintain it
           </Card.Text>
-          <Button href={`cryptocoinstar/coin/${coin.id}`}>View History</Button>
+          <Button href={`/coin/${coin.id}`}>View History</Button>
         </Card.Body>
       </Card>
     </div>
