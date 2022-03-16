@@ -1,5 +1,6 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import { selectHistoryData, getHistoryData } from "../store/historySlice";
 import { useAppDispatch } from "../store/store";
@@ -23,7 +24,8 @@ type ChartDataElement = {
 
 const CoinPage = () => {
   const dispatch = useAppDispatch();
-  const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("coin") || "";
   const navigate = useNavigate();
 
   // if (id === undefined) {

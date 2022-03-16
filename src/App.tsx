@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header";
-import Coinlist from "./Coinlist";
-import CoinPage from "./pages/CoinPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -10,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/cryptocoinstar' element={<Coinlist />} />
-          <Route path='/cryptocoinstar/coin/:id' element={<CoinPage />} />
+          <Route path='/cryptocoinstar' element={<HomePage />} />
+          {/* <Route path='/cryptocoinstar/coin/:id' element={<CoinPage />} /> */}
           {/* <Route path='/coin/:id' element={<CoinPage />} /> */}
           {/* <Route path='*' element={<Navigate to='/cryptocoinstar' />} /> */}
         </Routes>

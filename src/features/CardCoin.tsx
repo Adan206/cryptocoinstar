@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardCoin.css";
 import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const CardCoin = (props: any) => {
   const { coin } = props;
@@ -21,7 +20,7 @@ const CardCoin = (props: any) => {
             such as a government or bank, to uphold or maintain it
           </Card.Text>
 
-          <Button href={`/cryptocoinstar/coin/${coin.id}`}>View History</Button>
+          <Button href={`/cryptocoinstar?coin=${coin.id}`}>View History</Button>
 
           {/* <Button href={`/coin/${coin.id}`}>View History</Button> */}
         </Card.Body>
